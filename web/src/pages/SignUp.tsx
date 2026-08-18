@@ -43,16 +43,16 @@ export function SignUp() {
         navigate("/")
       }
 
-      if (Error instanceof AxiosError) {
-        return alert(Error.response?.data.message)
-      }
-
-
+      
+      
     } catch(error){
       console.log(error)
-
+      
       if(error instanceof ZodError){
         return alert(error.issues[0].message)
+      }
+      if (error instanceof AxiosError) {
+        return alert(error.response?.data.message)
       }
 
       alert("não foi possível cadastrar")
